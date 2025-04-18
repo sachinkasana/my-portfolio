@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-black/70 shadow-sm">
       <nav className="flex justify-between items-center max-w-6xl mx-auto px-6 py-4 text-sm">
-        <Link href="/" className="font-bold text-lg">Sachin</Link>
+        <Link href="/" className="font-bold text-lg">Sachin Kasana</Link>
         <div className="flex items-center gap-6">
           <Link href={isHome ? '#about' : '/#about'} className="hover:underline">About</Link>
           <Link href={isHome ? '#projects' : '/#projects'} className="hover:underline">Projects</Link>

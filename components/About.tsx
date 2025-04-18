@@ -6,7 +6,7 @@ export default function About() {
   
         {/* Intro Paragraph */}
         <p className="text-lg text-gray-700 dark:text-gray-300 mb-10 text-center leading-relaxed">
-          I’m Sachin — a curious builder, systems thinker, and software architect with over a decade of experience crafting scalable and performance-first web applications.
+          I’m Sachin Kasana— a curious builder, systems thinker, and software architect with over a decade of experience crafting scalable and performance-first web applications.
           I’m passionate about clean architecture, building products that people love, and helping developers grow. Whether I’m coding backend logic, designing front-end flows,
           or optimizing performance, I bring care, clarity, and curiosity to everything I work on.
         </p>
