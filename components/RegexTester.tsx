@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 export default function RegexTester() {
   const [pattern, setPattern] = useState('');
@@ -29,7 +29,7 @@ export default function RegexTester() {
       const parts = testString.split(regex);
       const foundMatches = [...testString.matchAll(regex)].map((m) => m[0]);
 
-      const result: (string | JSX.Element)[] = [];
+      const result: (string | React.JSX.Element)[] = [];
       let matchIndex = 0;
 
       parts.forEach((part, idx) => {

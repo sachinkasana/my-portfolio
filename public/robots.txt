@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://sachinkasana-tau.vercel.app
+Host: https://sachinkasana-dev.vercel.app/
 
 # Sitemaps
-Sitemap: https://sachinkasana-tau.vercel.app/sitemap.xml
+Sitemap: https://sachinkasana-dev.vercel.app/sitemap.xml
