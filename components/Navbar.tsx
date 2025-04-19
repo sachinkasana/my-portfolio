@@ -9,7 +9,17 @@ export default function Navbar() {
   const isHome = pathname === '/';
   const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    // Load persisted theme
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+      setTheme('dark');
+    }
+  }, []);
 
   const toggleTheme = () => {
     const isDark = document.documentElement.classList.toggle('dark');
@@ -17,25 +27,58 @@ export default function Navbar() {
     setTheme(isDark ? 'dark' : 'light');
   };
 
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur bg-white/70 dark:bg-black/70 shadow-sm">
       <nav className="flex justify-between items-center max-w-6xl mx-auto px-6 py-4 text-sm">
         <Link href="/" className="font-bold text-lg">Sachin Kasana</Link>
-        <div className="flex items-center gap-6">
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-6">
           <Link href={isHome ? '#about' : '/#about'} className="hover:underline">About</Link>
           <Link href={isHome ? '#projects' : '/#projects'} className="hover:underline">Projects</Link>
           <Link href={isHome ? '#blog' : '/#blog'} className="hover:underline">Blog</Link>
           <Link href="/resume" className="hover:underline">Resume</Link>
           <Link href={isHome ? '#contact' : '/#contact'} className="hover:underline">Contact</Link>
           <Link href="/tools/json-prettifier" className="hover:underline">JSON Prettifier</Link>
-          <Link href="/tools/regex-tester" className="hover:text-blue-500 transition"> Regex Tester</Link>
-
-          {/* Theme Toggle */}
+          <Link href="/tools/regex-tester" className="hover:text-blue-500 transition">Regex Tester</Link>
           <button onClick={toggleTheme} aria-label="Toggle Theme">
             {theme === 'dark' ? '🌞' : '🌙'}
           </button>
         </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle Menu">
+            ☰
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Nav Menu */}
+      {isMobileMenuOpen && (
+  <div className="md:hidden bg-white dark:bg-black w-full max-h-[calc(100vh-64px)] overflow-y-auto shadow-lg border-t border-gray-200 dark:border-gray-800">
+    <div className="flex flex-col text-sm px-6 py-4 space-y-4">
+      <Link href="/" onClick={closeMobileMenu} className="hover:text-blue-600">Home</Link>
+      <Link href={isHome ? '#about' : '/#about'} onClick={closeMobileMenu} className="hover:text-blue-600">About</Link>
+      <Link href={isHome ? '#projects' : '/#projects'} onClick={closeMobileMenu} className="hover:text-blue-600">Projects</Link>
+      <Link href={isHome ? '#blog' : '/#blog'} onClick={closeMobileMenu} className="hover:text-blue-600">Blog</Link>
+      <Link href="/resume" onClick={closeMobileMenu} className="hover:text-blue-600">Resume</Link>
+      <Link href={isHome ? '#contact' : '/#contact'} onClick={closeMobileMenu} className="hover:text-blue-600">Contact</Link>
+      <Link href="/tools/json-prettifier" onClick={closeMobileMenu} className="hover:text-blue-600">JSON Prettifier</Link>
+      <Link href="/tools/regex-tester" onClick={closeMobileMenu} className="hover:text-blue-600">Regex Tester</Link>
+      <button
+        onClick={() => { toggleTheme(); closeMobileMenu(); }}
+        className="mt-2 text-left"
+        aria-label="Toggle Theme"
+      >
+        {theme === 'dark' ? '🌞 Light Mode' : '🌙 Dark Mode'}
+      </button>
+    </div>
+  </div>
+)}
+
     </header>
   );
 }
