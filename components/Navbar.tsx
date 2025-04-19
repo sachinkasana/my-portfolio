@@ -28,6 +28,7 @@ export default function Navbar() {
           <Link href="/resume" className="hover:underline">Resume</Link>
           <Link href={isHome ? '#contact' : '/#contact'} className="hover:underline">Contact</Link>
           <Link href="/tools/json-prettifier" className="hover:underline">JSON Prettifier</Link>
+          <Link href="/tools/regex-tester" className="hover:text-blue-500 transition"> Regex Tester</Link>
 
           {/* Theme Toggle */}
           <button onClick={toggleTheme} aria-label="Toggle Theme">
