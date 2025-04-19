@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sachinkasana-tau.vercel.app
+
+# Sitemaps
+Sitemap: https://sachinkasana-tau.vercel.app/sitemap.xml
