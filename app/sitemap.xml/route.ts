@@ -1,7 +1,12 @@
 export async function GET() {
     const baseUrl = 'https://sachinkasana-dev.vercel.app';
   
-    const routes = ['', '/#about', '/#projects', '/#contact', '/resume', '/tools/json-prettifier', '/tools/regex-tester'];
+    const routes = [
+      '', 
+      '/resume', 
+      '/tools/json-prettifier', 
+      '/tools/regex-tester'
+    ];
   
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
