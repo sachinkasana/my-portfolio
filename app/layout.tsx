@@ -98,7 +98,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   })}
 </Script>
 <link rel="canonical" href="https://sachinkasana-dev.vercel.app/tools/json-prettifier" />
-
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
         <ThemeProvider>
           <Navbar />
           {children}
