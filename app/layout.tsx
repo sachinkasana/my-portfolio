@@ -78,6 +78,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     ]
   })}
 </Script>
+<Script id="json-prettifier-schema" type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "JSON Prettifier",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web",
+    url: "https://sachinkasana-dev.vercel.app/tools/json-prettifier",
+    author: {
+      "@type": "Person",
+      name: "Sachin Kasana"
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    }
+  })}
+</Script>
+<link rel="canonical" href="https://sachinkasana-dev.vercel.app/tools/json-prettifier" />
 
         <ThemeProvider>
           <Navbar />

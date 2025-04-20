@@ -1,11 +1,47 @@
+import Script from 'next/script';
+
 export const metadata = {
-    title: 'Sachin Kasana – Resume',
-    description: 'View and download the resume of Sachin Kasana, Principal Engineer with 12+ years of experience in scalable architecture and web engineering.',
-  };
+  title: "Sachin Kasana – Resume | Principal Engineer & Software Architect",
+  description:
+    "Explore Sachin Kasana’s professional resume – 12+ years of experience in Node.js, React, AWS, and system design. Currently Principal Engineer at Wood Mackenzie.",
+  keywords: [
+    "Sachin Kasana resume",
+    "Principal Engineer",
+    "Software Architect",
+    "Fullstack Developer",
+    "Node.js Resume",
+    "React Resume",
+    "AWS Resume",
+  ],
+  openGraph: {
+    title: "Sachin Kasana – Resume",
+    description:
+      "Professional resume of Sachin Kasana, Principal Engineer & Software Architect with 12+ years of experience.",
+    url: "https://sachinkasana-dev.vercel.app/resume",
+    siteName: "Sachin Kasana",
+    type: "profile",
+  },
+};
+
   
   export default function ResumePage() {
     return (
-      <main className="max-w-6xl mx-auto px-6 py-20">
+      <>
+      <Script id="resume-schema" type="application/ld+json">
+  {JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: "Resume of Sachin Kasana",
+    description: "Principal Engineer with 12+ years of experience in Node.js, React, AWS, and scalable system design.",
+    url: "https://sachinkasana-dev.vercel.app/resume",
+    author: {
+      "@type": "Person",
+      name: "Sachin Kasana"
+    },
+    dateModified: "2024-12-01"
+  })}
+</Script>
+<main className="max-w-6xl mx-auto px-6 py-20">
         <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">My Resume</h1>
   
         <div className="rounded-md overflow-hidden border shadow-md">
@@ -28,6 +64,8 @@ export const metadata = {
           </a>
         </div>
       </main>
+      </>
+      
     );
   }
   
