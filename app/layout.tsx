@@ -10,12 +10,12 @@ export const metadata = {
   title: 'Sachin Kasana – Principal Engineer | Node.js | React | AI',
   description:
     'Software engineer with 12+ years of experience building scalable applications. Principal Engineer at Wood Mackenzie. Explore blogs, resume, and projects.',
-  metadataBase: new URL('https://yourdomain.com'), // ✅ Update with your actual domain
+  metadataBase: new URL('https://sachinkasana-dev.vercel.app'),
   openGraph: {
     title: 'Sachin Kasana – Principal Engineer',
     description:
       'Explore the personal website and blog of Sachin Kasana, Principal Engineer at Wood Mackenzie. Focused on Node.js, AI, performance & scalable web apps.',
-    url: 'https://yourdomain.com',
+    url: 'https://sachinkasana-dev.vercel.app/',
     siteName: 'Sachin Kasana',
     locale: 'en_US',
     type: 'website',
