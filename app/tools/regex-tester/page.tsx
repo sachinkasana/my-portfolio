@@ -43,6 +43,11 @@ export default function RegexTesterPage() {
             "@type": "Offer",
             price: "0",
             priceCurrency: "USD"
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: "27"
           }
         })}
       </Script>
