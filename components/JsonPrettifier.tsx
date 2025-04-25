@@ -1,11 +1,17 @@
 'use client';
 
 import { useState } from 'react';
-
+declare global {
+    interface Window {
+      gtag?: (...args: any[]) => void;
+    }
+  }
+  
 export default function JsonPrettifier() {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState('');
+
 
   const formatJson = () => {
     try {
@@ -13,6 +19,11 @@ export default function JsonPrettifier() {
       const pretty = JSON.stringify(parsed, null, 2);
       setOutput(pretty);
       setError('');
+       // 📊 GA Event for Format
+       window.gtag && window.gtag('event', 'format_json', {
+        event_category: 'JSON Tool',
+        event_label: 'Format Button Clicked',
+      });
     } catch (err: any) {
       setError('⚠️ Invalid JSON format. Please check for missing quotes, commas, or braces.');
       setOutput('');
@@ -21,6 +32,11 @@ export default function JsonPrettifier() {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(output);
+    // 📊 GA Event for Copy
+    window.gtag && window.gtag('event', 'copy_json', {
+        event_category: 'JSON Tool',
+        event_label: 'Copy Button Clicked',
+      });
   };
 
   const downloadJson = () => {
@@ -29,6 +45,11 @@ export default function JsonPrettifier() {
     link.href = URL.createObjectURL(blob);
     link.download = 'formatted.json';
     link.click();
+     // 📊 GA Event for Download
+     window.gtag && window.gtag('event', 'download_json', {
+        event_category: 'JSON Tool',
+        event_label: 'Download Button Clicked',
+      });
   };
 
   return (
